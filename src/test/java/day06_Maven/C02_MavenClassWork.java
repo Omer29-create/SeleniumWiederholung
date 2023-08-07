@@ -50,3 +50,17 @@ public class C02_MavenClassWork {
         //tarih kismina “2020-09-10” yazdirin
         WebElement tarih = driver.findElement(By.cssSelector("input[id='sp_date']"));
         tarih.sendKeys("2020-09-10");
+
+        //Pay buttonuna tiklayin
+        driver.findElement(By.cssSelector("input[id='pay_saved_payees']")).click();
+
+        //“The payment was successfully submitted.” mesajinin ciktigini control edin
+        WebElement mesaj = driver.findElement(By.xpath("//*[text()='The payment was successfully submitted.']"));
+        if (mesaj.isDisplayed()){
+            System.out.println("TEST PASSED");
+        }else System.out.println("TEST FAILED");
+
+        //Sayfayi kapatınız
+        driver.close();
+    }
+}
